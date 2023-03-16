@@ -91,7 +91,6 @@ class OhelperAdminPagesCreator extends OhelperBaseController
   public function add_admin_menu()
   {
     foreach ($this->admin_pages as $page) {
-//      error_log($page ['icon_url']);
       add_menu_page($page['page_title'], $page['menu_title'], $page['capability'], $page ['menu_slug'], $page ['callback'], $page ['icon_url'], $page['position']);
     }
     foreach ($this->admin_subpages as $subpage) {

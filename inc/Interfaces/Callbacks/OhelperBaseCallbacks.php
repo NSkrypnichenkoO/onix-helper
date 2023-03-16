@@ -359,8 +359,12 @@ class OhelperBaseCallbacks
     $name = isset($args['label_for']) ? $args['label_for'] : '';
     $checkbox = get_option($args['option_name']);
 
-    $item_slug = array_key_first($checkbox);
-    $checked = !(isset($checkbox[$item_slug][$name]));
+    if (!$checkbox) {
+      $checked = true;
+    } else {
+      $item_slug = array_key_first($checkbox);
+      $checked = !(isset($checkbox[$item_slug][$name]));
+    }
 
     $checkbox_html = '<label class="switch"> <input type="checkbox" class="checkbox-switcher" value="1" ';
 

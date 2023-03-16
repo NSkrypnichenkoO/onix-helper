@@ -54,7 +54,9 @@ class OhelperBaseController
   public function controller_activated(string $key): bool
   {
     $option = get_option('onix_meta_box');
-
+    if (!$option) {
+      return false;
+    }
     return in_array($key, $option);
   }
 

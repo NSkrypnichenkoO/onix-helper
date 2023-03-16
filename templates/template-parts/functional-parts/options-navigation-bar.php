@@ -6,7 +6,7 @@ if (isset($args)){
   <div class="oh-navigation-row">
 <!--    <label>-->
 <!--      <input type="checkbox" class="oh-simple-checkbox">-->
-<!--      --><?php //echo __('Show description', 'onix-helper') ?>
+<!--      --><?php //echo esc_html_e('Show description', 'onix-helper') ?>
 <!--    </label>-->
   </div>
 </div>

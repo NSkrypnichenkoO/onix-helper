@@ -64,15 +64,15 @@ class OhelperConfigurableMetabox
   public function render_metabox($post)
   {
     ?>
-    <table class="form-table omb-section-fields <?php echo $this->meta_key ?>-info"
-           max-section-count="<?php echo $this->max_section_count ?>"
-           id="<?php echo $this->meta_key ?>">
+    <table class="form-table omb-section-fields <?php echo esc_attr($this->meta_key) ?>-info"
+           max-section-count="<?php echo esc_attr($this->max_section_count) ?>"
+           id="<?php echo esc_attr($this->meta_key) ?>">
       <tr>
         <th>
-          <?php echo $this->add_metabox_args['name'] ?>
-          <span class="dashicons dashicons-plus-alt add-field-block add-new-<?php echo $this->meta_key ?>"></span>
+          <?php echo esc_html($this->add_metabox_args['name']) ?>
+          <span class="dashicons dashicons-plus-alt add-field-block add-new-<?php echo esc_attr($this->meta_key) ?>"></span>
         </th>
-        <td class="<?php echo $this->meta_key ?>-list">
+        <td class="<?php echo esc_attr($this->meta_key) ?>-list">
           <?php
 
           $list_of_values = get_post_meta($post->ID, $this->meta_key, true);
@@ -114,7 +114,7 @@ class OhelperConfigurableMetabox
 
     $number_of_fields = count($this->fields_list);
     ?>
-    <span class="item-<?php echo $this->meta_key ?>" id="item-<?php echo $this->meta_key ?>">
+    <span class="item-<?php echo esc_attr($this->meta_key) ?>" id="item-<?php echo esc_attr($this->meta_key) ?>">
 		<?php
     for ($i = 0; $i < $number_of_fields; $i++) {
 
@@ -125,7 +125,7 @@ class OhelperConfigurableMetabox
       $value = empty($section_item) ? '' : $section_item[$name_of_field];
       self::show_metabox_field($name_of_field, $value, $input_label, $type);
     } ?>
-            <span class="dashicons dashicons-trash remove-fields-block remove-new-<?php echo $this->meta_key ?>"></span>
+            <span class="dashicons dashicons-trash remove-fields-block remove-new-<?php echo esc_attr($this->meta_key) ?>"></span>
             </span>
     <?php
   }
@@ -247,22 +247,22 @@ class OhelperConfigurableMetabox
   {
     ?>
     <style>
-      .add-new-<?php echo $this->meta_key ?> {
+      .add-new-<?php echo esc_attr($this->meta_key) ?> {
         color: #00a0d2;
         cursor: pointer;
       }
 
-      .<?php echo $this->meta_key ?>-list .item-<?php echo $this->meta_key ?> {
+      .<?php echo esc_attr($this->meta_key) ?>-list .item-<?php echo esc_attr($this->meta_key) ?> {
         display: flex;
         align-items: center;
       }
 
-      .remove-new-<?php echo $this->meta_key ?> {
+      .remove-new-<?php echo esc_attr($this->meta_key) ?> {
         color: brown;
         cursor: pointer;
       }
 
-      .item-<?php echo $this->meta_key ?> img {
+      .item-<?php echo esc_attr($this->meta_key) ?> img {
         margin-top: 15px;
       }
 

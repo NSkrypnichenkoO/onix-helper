@@ -96,7 +96,7 @@ class OhelperAdminCallbacks extends OhelperBaseController
     $option_name = $args['option_name'];
     $checkbox = get_option($option_name);
 
-    $checked = in_array($name, $checkbox);
+    $checked = $checkbox ? in_array($name, $checkbox) : false;
 
     OhelperBaseCallbacks::render_switcher_checkbox_html($option_name, $name, $checked);
   }

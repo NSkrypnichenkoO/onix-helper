@@ -13,31 +13,31 @@ $edit_one = isset($_POST['edit_cpt'])
 
 <ul class="nav nav-tabs">
   <li class="<?php echo $edit_one ? '' : 'active' ?>">
-    <a href="#tab-1"><?php echo __('Created Custom Post Types', 'onix-helper') ?></a>
+    <a href="#tab-1"><?php echo esc_html_e('Created Custom Post Types', 'onix-helper') ?></a>
   </li>
   <li class="<?php echo $edit_one ? 'active' : '' ?>">
     <a
-      href="#tab-2"> <?php echo $edit_one ? 'Edit ' . sanitize_title($_POST['edit_cpt']) : __('Add new Custom Post Type') ?></a>
+      href="#tab-2"> <?php echo $edit_one ? 'Edit ' . esc_html(sanitize_title($_POST['edit_cpt'])) : esc_html_e('Add new Custom Post Type') ?></a>
   </li>
   <!--  <li>-->
-  <!--    <a href="#tab-3"> <?php // echo __('Export'. 'onix-helper') ?></a>-->
+  <!--    <a href="#tab-3"> <?php // echo esc_html_e('Export'. 'onix-helper') ?></a>-->
   <!--  </li>-->
 </ul>
 
 
 <div class="tab-content">
   <div id="tab-1" class="tab-pane <?php echo $edit_one ? '' : 'active' ?>">
-    <h3><?php echo __('Created Custom Post Types', 'onix-helper') ?></h3>
+    <h3><?php echo esc_html_e('Created Custom Post Types', 'onix-helper') ?></h3>
 
     <table class="wp-list-table widefat fixed striped table-view-list">
       <thead>
       <tr>
-        <th><?php echo __('Id', 'onix-helper') ?></th>
-        <th><?php echo __('Name', 'onix-helper') ?></th>
-        <th><?php echo __('Singular Name', 'onix-helper') ?></th>
-        <th><?php echo __('Public', 'onix-helper') ?></th>
-        <th><?php echo __('Description', 'onix-helper') ?></th>
-        <th><?php echo __('Actions', 'onix-helper') ?></th>
+        <th><?php echo esc_html_e('Id', 'onix-helper') ?></th>
+        <th><?php echo esc_html_e('Name', 'onix-helper') ?></th>
+        <th><?php echo esc_html_e('Singular Name', 'onix-helper') ?></th>
+        <th><?php echo esc_html_e('Public', 'onix-helper') ?></th>
+        <th><?php echo esc_html_e('Description', 'onix-helper') ?></th>
+        <th><?php echo esc_html_e('Actions', 'onix-helper') ?></th>
       </tr>
       </thead>
 
@@ -47,7 +47,7 @@ $edit_one = isset($_POST['edit_cpt'])
       if ($cpt_list) {
       ?>
 
-      <thebody>
+      <tbody>
         <?php
         foreach ($cpt_list as $cpt) { ?>
           <tr>
@@ -78,11 +78,11 @@ $edit_one = isset($_POST['edit_cpt'])
         <?php }
         else {
           ?>
-          <tr><?php echo __('nothing found', 'onix-helper') ?></tr>
+          <tr><?php echo esc_html_e('nothing found', 'onix-helper') ?></tr>
           <?php
         }
         ?>
-      </thebody>
+      </tbody>
     </table>
   </div>
 
@@ -96,7 +96,7 @@ $edit_one = isset($_POST['edit_cpt'])
       ?>
     </form>
   </div>
-  <div id="tab-3" class="tab-pane"><h3> <?php echo __('Export', 'onix-helper') ?></h3></div>
+  <div id="tab-3" class="tab-pane"><h3> <?php echo esc_html_e('Export', 'onix-helper') ?></h3></div>
 
 
 </div>
