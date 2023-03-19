@@ -58,7 +58,7 @@ class OhelperBaseCallbacks
    */
   public function create_text_field(array $args)
   {
-    $name = isset($args['label_for']) ? $args['label_for'] : '';
+    $name = isset($args['label_for']) ? sanitize_title($args['label_for']) : '';
     $option_name = $args['option_name'];
     $value = $read_only = '';
     $placeholder = isset($args['placeholder']) ? $args['placeholder'] : '';
@@ -117,7 +117,7 @@ class OhelperBaseCallbacks
 //   */
 //  public function create_checkbox_with_default_option(array $args, $object_edit_mode)
 //  {
-//    $name = $args['label_for'];
+//    $name = sanitize_title($args['label_for']);
 //    $option_name = $args['option_name'];
 //    $label = isset($args['description']) ? $args['description'] : '';
 //    $value = null;
@@ -137,8 +137,7 @@ class OhelperBaseCallbacks
    */
   public function create_true_false_radio_buttons(array $args, string|bool $object_edit_mode)
   {
-    $name = $args['label_for'];
-
+    $name = sanitize_title($args['label_for']);
     $option_name = $args['option_name'];
 
     $value = null;
@@ -226,7 +225,7 @@ class OhelperBaseCallbacks
    */
   public function create_simple_select(array $args, $object_edit_mode)
   {
-    $name = $args['label_for'];
+    $name = sanitize_title($args['label_for']);
     $option_name = $args['option_name'];
     $selected = '';
 
@@ -251,17 +250,17 @@ class OhelperBaseCallbacks
    */
   private function render_simple_select_html(string $name, string $classes, string $selected, array $options)
   {
-    $select = '<select name="' . $name . '" class=" ' . $classes . ' ">';
+    $select = '<select name="' . esc_attr($name) . '" class=" ' . esc_attr($classes) . ' ">';
 
     foreach ($options as $option) {
 
-      $select .= '<option value="' . $option . '" ';
+      $select .= '<option value="' . esc_attr($option) . '" ';
 
       if ($selected && ($option == $selected)) {
         $select .= 'selected';
       }
 
-      $select .= '>' . $option . '</option>';
+      $select .= '>' . esc_attr($option) . '</option>';
     }
 
     $select .= '</select>';
@@ -276,8 +275,8 @@ class OhelperBaseCallbacks
    */
   public function create_multiple_select(array $args, $object_edit_mode, $options)
   {
-    $name = $args['label_for'];
-    $option_name = $args['option_name'];
+    $name = sanitize_title($args['label_for']);
+    $option_name = sanitize_key($args['option_name']);
     $selected = [];
 
     if ($object_edit_mode) {
@@ -303,11 +302,11 @@ class OhelperBaseCallbacks
   private function render_multiple_select_html(string $name, string $classes, array $selected, array $options, bool $required = false)
   {
     $required = $required ? 'required' : "";
-    $select = '<div class="onix-beautiful-select"> <select multiple="multiple" name="' . $name . '" class=" ' . $classes . '" ' . $required . '>';
+    $select = '<div class="onix-beautiful-select"> <select multiple="multiple" name="' . esc_attr($name) . '" class=" ' . esc_attr($classes) . '" ' . $required . '>';
 
     foreach ($options as $option) {
       $current = (!empty($selected) && in_array($option, $selected)) ? 'selected' : '';
-      $select .= '<option value="' . $option . '" ' . $current . '>' . $option . '</option>';
+      $select .= '<option value="' . esc_attr($option) . '" ' . $current . '>' . esc_attr($option) . '</option>';
     }
 
     $select .= '</select></div>';
@@ -356,7 +355,7 @@ class OhelperBaseCallbacks
    */
   public static function render_switcher_checkbox(array $args)
   {
-    $name = isset($args['label_for']) ? $args['label_for'] : '';
+    $name = isset($args['label_for']) ? sanitize_title($args['label_for']) : '';
     $checkbox = get_option($args['option_name']);
 
     if (!$checkbox) {

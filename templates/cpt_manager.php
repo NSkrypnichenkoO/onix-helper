@@ -65,7 +65,7 @@ $edit_one = isset($_POST['edit_cpt'])
 
               <form method="post" action="options.php">
                 <?php settings_fields('omb_cpt_settings'); ?>
-                <input type="hidden" name="remove" value="<?php echo $cpt['post_type'] ?>">
+                <input type="hidden" name="remove" value="<?php echo esc_html($cpt['post_type']) ?>">
                 <?php submit_button(__('Remove', 'onix-helper'), 'delete small', 'submit', false,
                   ['onclick' => 'return confirm("Are you sure you want to delete this post type? The data associated with it will be deleted")']); ?>
               </form>

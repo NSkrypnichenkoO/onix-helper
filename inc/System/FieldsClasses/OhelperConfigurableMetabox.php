@@ -147,10 +147,10 @@ class OhelperConfigurableMetabox
     switch ($type_field) {
       case 'text':
         echo '
-        <label for="' . $name_of_field . '"> ' . $input_label . ' 
+        <label for="' . esc_attr($name_of_field) . '"> ' . esc_html($input_label) . ' 
 		    <p><input type="text" 
-		    name="' . $this->meta_key . '[' . $name_of_field . ']' . '[]" 
-		    value="' . $field_value . '"></p></label>';
+		    name="' . esc_attr($this->meta_key) . '[' . esc_attr($name_of_field) . ']' . '[]" 
+		    value="' . esc_html($field_value) . '"></p></label>';
 
         break;
       case 'image':
@@ -164,10 +164,10 @@ class OhelperConfigurableMetabox
         }
         echo '
 				<div>
-				<img data-src="' . $default . '" src="' . $src . '" width="' . 90 . 'px" height="' . 90 . 'px" />
+				<img data-src="' . $default . '" src="' . esc_url($src) . '" width="' . 90 . 'px" height="' . 90 . 'px" />
 					<div>
-						<input type="hidden" name="' . $this->meta_key . '[' . $name_of_field . ']' . '[]" id="' . $name_of_field . '[]" value="' . $field_value . '" />
-						<button type="submit" class="upload_image_button button">Загрузить</button>
+						<input type="hidden" name="' . esc_attr($this->meta_key) . '[' . esc_attr($name_of_field) . ']' . '[]" id="' . esc_attr($name_of_field) . '[]" value="' . esc_html($field_value) . '" />
+						<button type="submit" class="upload_image_button button">Upload</button>
 					</div>
 				</div>
 				';

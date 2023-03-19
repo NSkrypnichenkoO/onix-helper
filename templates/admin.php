@@ -9,13 +9,13 @@ require_once $base_controller->omb_path . 'templates/template-parts/sections/hea
 
 <ul class="nav nav-tabs">
   <li class="active">
-    <a href="#tab-1"> <?php __('Manage stings', 'onix-helper') ?></a>
+    <a href="#tab-1"> <?php esc_html_e('Manage stings', 'onix-helper') ?></a>
   </li>
   <li>
-    <a href="#tab-2"> <?php __('Updates', 'onix-helper') ?></a>
+    <a href="#tab-2"> <?php esc_html_e('Updates', 'onix-helper') ?></a>
   </li>
   <li>
-    <a href="#tab-3"> <?php __('Plugin settings', 'onix-helper') ?></a>
+    <a href="#tab-3"> <?php esc_html_e('Plugin settings', 'onix-helper') ?></a>
   </li>
 </ul>
 
@@ -36,7 +36,7 @@ require_once $base_controller->omb_path . 'templates/template-parts/sections/hea
 
   </div>
 
-  <div id="tab-2" class="tab-pane"><h3> <?php __('Updates', 'onix-helper') ?></h3></div>
+  <div id="tab-2" class="tab-pane"><h3> <?php esc_html_e('Updates', 'onix-helper') ?></h3></div>
   <div id="tab-3" class="tab-pane">
     <form method="post" action="options.php">
       <?php

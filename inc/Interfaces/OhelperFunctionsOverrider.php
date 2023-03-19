@@ -35,7 +35,7 @@ class OhelperFunctionsOverrider
       echo "<div {$class}> ";
 
       if (!empty($field['args']['label_for'])) {
-        echo '<div scope="row" class="row"><label for="' . esc_attr($field['args']['label_for']) . '">' . $field['title'] . '</label>';
+        echo '<div scope="row" class="row"><label for="' . esc_attr($field['args']['label_for']) . '">' . esc_html($field['title']) . '</label>';
       } else {
         echo '<div scope="row" class="row">' . $field['title'];
       }
@@ -60,7 +60,7 @@ class OhelperFunctionsOverrider
         <circle cx="9.99996" cy="5.83333" r="0.833333" fill="#D1D5DB"/>
         <path d="M9.16662 8.33333H9.99996V14.1667M18.3333 10C18.3333 14.6024 14.6023 18.3333 9.99996 18.3333C5.39759 18.3333 1.66663 14.6024 1.66663 10C1.66663 5.39762 5.39759 1.66666 9.99996 1.66666C14.6023 1.66666 18.3333 5.39762 18.3333 10Z" stroke="#D1D5DB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </g><defs><clipPath id="clip0_37_3545"> <rect width="20" height="20" fill="white"/></clipPath></defs>
-        </svg>' . $description . '</div>';
+        </svg>' . esc_html($description) . '</div>';
 
       echo '</div>';
     }
