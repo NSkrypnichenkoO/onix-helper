@@ -11,12 +11,12 @@ $edit_one = isset($_POST['edit_tax'])
 ?>
 
 <ul class="nav nav-tabs">
-  <li class="<?php echo $edit_one ? '' : 'active' ?>">
+  <li class="<?php echo esc_attr($edit_one, 'onix-helper') ? '' : esc_attr('active', 'onix-helper') ?>">
     <a href="#tab-1"> <?php echo esc_html_e('Created Taxonomy', 'onix-helper') ?></a>
   </li>
-  <li class="<?php echo $edit_one ? 'active' : '' ?>">
+  <li class="<?php echo $edit_one ? esc_attr('active', 'onix-helper') : '' ?>">
     <a
-      href="#tab-2"> <?php echo $edit_one ? 'Edit ' . esc_html(sanitize_title($_POST['edit_tax'])) : esc_html_e('Add new Taxonomy', 'onix-helper') ?></a>
+      href="#tab-2"> <?php echo $edit_one ? esc_html('Edit ', 'onix-helper') . esc_html(sanitize_title($_POST['edit_tax'])) : esc_html_e('Add new Taxonomy', 'onix-helper') ?></a>
   </li>
   <!--  <li>-->
   <!--    <a href="#tab-3"><?php // echo esc_html_e('Export'. 'onix-helper') ?></a>-->
@@ -24,7 +24,7 @@ $edit_one = isset($_POST['edit_tax'])
 </ul>
 
 <div class="tab-content">
-  <div id="tab-1" class="tab-pane <?php echo $edit_one ? '' : 'active' ?>">
+  <div id="tab-1" class="tab-pane <?php echo $edit_one ? '' : esc_attr('active', 'onix-helper') ?>">
     <h3> <?php echo esc_html_e('Created Taxonomies', 'onix-helper') ?> </h3>
 
     <table class="wp-list-table widefat fixed striped table-view-list">

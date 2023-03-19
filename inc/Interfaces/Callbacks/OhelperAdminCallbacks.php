@@ -70,7 +70,7 @@ class OhelperAdminCallbacks extends OhelperBaseController
 
   public function admin_pages_section_manager()
   {
-    echo 'Manage the features of this plugin by activating the checkboxes';
+      esc_html_e('Manage the features of this plugin by activating the checkboxes', 'onix-helper');
   }
 
   public function admin_pages_settings_section_manager()
@@ -89,7 +89,7 @@ class OhelperAdminCallbacks extends OhelperBaseController
     $name = isset($args['label_for']) ? $args['label_for'] : '';
 
     if (!$name) {
-      error_log('field in Admin.php set_fields() was create with error in code, please check it ');
+      error_log('field in Admin.php set_fields() was create with error in code, please check it ', );
       echo '';
     }
 

@@ -10,17 +10,17 @@ require_once $base_controller->omb_path . 'templates/template-parts/sections/hea
 $edit_one = isset($_POST['edit_fields_section']);
 ?>
 <ul class="nav nav-tabs">
-  <li class="<?php echo $edit_one ? '' : 'active' ?>">
+  <li class="<?php echo $edit_one ? '' : esc_attr('active', 'onix-helper') ?>">
     <a href="#tab-1"><?php echo esc_html_e('Created Fields Sections', 'onix-helper') ?></a>
   </li>
-  <li class="<?php echo $edit_one ? 'active' : '' ?>">
+  <li class="<?php echo $edit_one ? esc_attr('active', 'onix-helper') : '' ?>">
     <a
       href="#tab-2"> <?php echo $edit_one ? esc_html_e('Edit ', 'onix-helper') . esc_html(sanitize_title($_POST['edit_fields_section'])) : esc_html_e('Add new Fields Section', 'onix-helper') ?></a>
   </li>
 </ul>
 
 <div class="tab-content">
-  <div id="tab-1" class="tab-pane <?php echo $edit_one ? '' : 'active' ?>">
+  <div id="tab-1" class="tab-pane <?php echo $edit_one ? '' : esc_attr('active', 'onix-helper') ?>">
     <h3> Created Taxonomies </h3>
     <table class="wp-list-table widefat fixed striped table-view-list">
       <thead>
@@ -72,7 +72,7 @@ $edit_one = isset($_POST['edit_fields_section']);
     </table>
   </div>
 
-  <div id="tab-2" class="tab-pane <?php echo $edit_one ? 'active' : '' ?>">
+  <div id="tab-2" class="tab-pane <?php echo $edit_one ? esc_attr('active', 'onix-helper') : '' ?>">
 
     <form method="post" action="options.php">
       <?php

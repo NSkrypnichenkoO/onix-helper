@@ -15,7 +15,7 @@ $edit_one = isset($_POST['edit_cpt'])
   <li class="<?php echo $edit_one ? '' : 'active' ?>">
     <a href="#tab-1"><?php echo esc_html_e('Created Custom Post Types', 'onix-helper') ?></a>
   </li>
-  <li class="<?php echo $edit_one ? 'active' : '' ?>">
+  <li class="<?php echo $edit_one ? esc_attr('active', 'onix-helper') : '' ?>">
     <a
       href="#tab-2"> <?php echo $edit_one ? 'Edit ' . esc_html(sanitize_title($_POST['edit_cpt'])) : esc_html_e('Add new Custom Post Type') ?></a>
   </li>
@@ -26,7 +26,7 @@ $edit_one = isset($_POST['edit_cpt'])
 
 
 <div class="tab-content">
-  <div id="tab-1" class="tab-pane <?php echo $edit_one ? '' : 'active' ?>">
+  <div id="tab-1" class="tab-pane <?php echo $edit_one ? '' : esc_attr('active', 'onix-helper') ?>">
     <h3><?php echo esc_html_e('Created Custom Post Types', 'onix-helper') ?></h3>
 
     <table class="wp-list-table widefat fixed striped table-view-list">

@@ -37,7 +37,7 @@ class OhelperFunctionsOverrider
       if (!empty($field['args']['label_for'])) {
         echo '<div scope="row" class="row"><label for="' . esc_attr($field['args']['label_for']) . '">' . esc_html($field['title']) . '</label>';
       } else {
-        echo '<div scope="row" class="row">' . $field['title'];
+        echo '<div scope="row" class="row">' . esc_html($field['title'], 'onix-helper');
       }
 
       echo '<div class="row-right-part">';
