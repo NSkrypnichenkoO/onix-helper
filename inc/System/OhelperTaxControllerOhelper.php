@@ -380,17 +380,18 @@ class OhelperTaxControllerOhelper extends OhelperBaseController
       $labels = array(
         'name' => _x($pl_name, 'taxonomy general name', 'onix-helper'),
         'singular_name' => _x($single_name, 'taxonomy singular name', 'onix-helper'),
-        'search_items' => __('Search ' . $pl_name, 'onix-helper'),
-        'all_items' => __('All ' . $pl_name, 'onix-helper'),
-        'parent_item' => __('Parent ' . $single_name, 'onix-helper'),
-        'parent_item_colon' => __('Parent ' . $single_name . ':', 'onix-helper'),
-        'edit_item' => __('Edit ' . $single_name, 'onix-helper'),
-        'update_item' => __('Update ' . $single_name, 'onix-helper'),
-        'add_new_item' => __('Add New ' . $single_name, 'onix-helper'),
-        'new_item_name' => __('New ' . $single_name . ' Name', 'onix-helper'),
-        'menu_name' => __($single_name, 'onix-helper'),
+        'search_items' => sprintf(__('Search %s', 'onix-helper'), $pl_name),
+        'all_items' => sprintf(__('All %s', 'onix-helper'),  $pl_name),
+        'parent_item' => sprintf(__('Parent %s', 'onix-helper'), $single_name),
+        'parent_item_colon' => sprintf(__('Parent %s :', 'onix-helper'), $single_name),
+        'edit_item' => sprintf(__('Edit %s' , 'onix-helper'), $single_name),
+        'update_item' => sprintf(__('Update  %s', 'onix-helper') , $single_name),
+        'add_new_item' => sprintf(__('Add New %s' , 'onix-helper'), $single_name),
+        'new_item_name' => sprintf(__('New %s'  . ' Name', 'onix-helper'), $single_name),
+        'menu_name' => $single_name,
       );
 
+//      sprintf()
       /*
        * for me it is bad practise pass to the method register_taxonomy() array with some parameters, that it not need.
        * so we should separate args array from system information

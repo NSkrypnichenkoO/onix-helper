@@ -11,12 +11,12 @@ $edit_one = isset($_POST['edit_tax'])
 ?>
 
 <ul class="nav nav-tabs">
-  <li class="<?php echo esc_attr($edit_one, 'onix-helper') ? '' : esc_attr('active', 'onix-helper') ?>">
-    <a href="#tab-1"> <?php echo esc_html_e('Created Taxonomy', 'onix-helper') ?></a>
+  <li class="<?php echo esc_attr($edit_one) ? esc_attr('') : esc_attr('active') ?>">
+    <a href="#tab-1"> <?php esc_html_e('Created Taxonomy', 'onix-helper') ?></a>
   </li>
-  <li class="<?php echo $edit_one ? esc_attr('active', 'onix-helper') : '' ?>">
+  <li class="<?php echo $edit_one ? esc_attr('active', ) : esc_attr('') ?>">
     <a
-      href="#tab-2"> <?php echo $edit_one ? esc_html('Edit ', 'onix-helper') . esc_html(sanitize_title($_POST['edit_tax'])) : esc_html_e('Add new Taxonomy', 'onix-helper') ?></a>
+      href="#tab-2"> <?php echo $edit_one ? esc_html(__('Edit ', 'onix-helper')) . esc_html(sanitize_title($_POST['edit_tax'])) : esc_html(__('Add new Taxonomy', 'onix-helper')) ?></a>
   </li>
   <!--  <li>-->
   <!--    <a href="#tab-3"><?php // echo esc_html_e('Export'. 'onix-helper') ?></a>-->
@@ -24,16 +24,16 @@ $edit_one = isset($_POST['edit_tax'])
 </ul>
 
 <div class="tab-content">
-  <div id="tab-1" class="tab-pane <?php echo $edit_one ? '' : esc_attr('active', 'onix-helper') ?>">
-    <h3> <?php echo esc_html_e('Created Taxonomies', 'onix-helper') ?> </h3>
+  <div id="tab-1" class="tab-pane <?php echo $edit_one ? esc_attr('') : esc_attr('active') ?>">
+    <h3> <?php esc_html_e('Created Taxonomies', 'onix-helper') ?> </h3>
 
     <table class="wp-list-table widefat fixed striped table-view-list">
       <thead>
       <tr>
-        <th><?php echo esc_html_e('Id', 'onix-helper') ?></th>
-        <th><?php echo esc_html_e('Singular Name', 'onix-helper') ?></th>
-        <th><?php echo esc_html_e('Description', 'onix-helper') ?></th>
-        <th><?php echo esc_html_e('Actions', 'onix-helper') ?></th>
+        <th><?php esc_html_e('Id', 'onix-helper') ?></th>
+        <th><?php esc_html_e('Singular Name', 'onix-helper') ?></th>
+        <th><?php esc_html_e('Description', 'onix-helper') ?></th>
+        <th><?php esc_html_e('Actions', 'onix-helper') ?></th>
       </tr>
       </thead>
 
@@ -42,7 +42,6 @@ $edit_one = isset($_POST['edit_tax'])
 
       if ($tax_list) {
       ?>
-
       <tbody>
         <?php
         foreach ($tax_list as $tax) {
@@ -51,7 +50,7 @@ $edit_one = isset($_POST['edit_tax'])
           <tr>
             <td><?php esc_html_e($taxonomy, 'onix-helper') ?></td>
             <td><?php esc_html_e($tax['singular_name']) ?></td>
-            <td><?php echo isset($tax["description"]) ? esc_html(__($tax["description"], 'onix-helper')) : '' ?></td>
+            <td><?php echo isset($tax["description"]) ? esc_html($tax["description"]) : esc_html('') ?></td>
             <td class="button-wrapper">
               <form method="post" action="">
                 <input type="hidden" name="edit_tax" value="<?php echo esc_html($taxonomy) ?>">
@@ -70,13 +69,13 @@ $edit_one = isset($_POST['edit_tax'])
         }
         else {
           ?>
-          <tr> <?php echo esc_html_e('nothing found', 'onix-helper') ?></tr>
+          <tr> <?php esc_html_e('nothing found', 'onix-helper') ?></tr>
         <?php } ?>
       </tbody>
     </table>
   </div>
 
-  <div id="tab-2" class="tab-pane <?php echo $edit_one ? 'active' : '' ?>">
+  <div id="tab-2" class="tab-pane <?php echo $edit_one ? esc_attr('active') : esc_attr('') ?>">
     <form method="post" action="options.php">
       <?php
       settings_fields('omb_tax_settings');
@@ -86,8 +85,7 @@ $edit_one = isset($_POST['edit_tax'])
       ?>
     </form>
   </div>
-  <div id="tab-3" class="tab-pane"><h3> <?php echo esc_html_e('Export', 'onix-helper') ?></h3></div>
-
+  <div id="tab-3" class="tab-pane"><h3> <?php esc_html_e('Export', 'onix-helper') ?></h3></div>
 
 </div>
 <?php require_once $base_controller->omb_path . 'templates/template-parts/sections/footer-main.php'; ?>

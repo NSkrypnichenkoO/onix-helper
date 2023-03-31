@@ -139,7 +139,8 @@ class OhelperTaxCallbacksOhelper extends OhelperBaseCallbacks
 
   public function render_switcher_checkbox_tax(array $args)
   {
-    $this->render_switcher_checkbox($args);
+    $edit_tax = $this->tax_edit_mode();
+    $this->render_switcher_checkbox($args,  $edit_tax);
   }
 
   /**

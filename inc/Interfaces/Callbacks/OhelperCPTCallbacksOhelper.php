@@ -148,13 +148,14 @@ class OhelperCPTCallbacksOhelper extends OhelperBaseCallbacks
    */
   public function true_false_radio_buttons(array $args)
   {
-    $edit_tax = $this->cpt_edit_mode();
-    $this->create_true_false_radio_buttons($args, $edit_tax);
+    $edit_cpt = $this->cpt_edit_mode();
+    $this->create_true_false_radio_buttons($args, $edit_cpt);
   }
 
   public function render_switcher_checkbox_tax(array $args)
   {
-    $this->render_switcher_checkbox($args);
+    $edit_cpt = $this->cpt_edit_mode();
+    $this->render_switcher_checkbox($args, $edit_cpt);
   }
 
 

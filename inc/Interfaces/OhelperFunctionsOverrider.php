@@ -29,40 +29,40 @@ class OhelperFunctionsOverrider
       $class = ' class="onix-helper-field-block" id="' . $field['id'] . '"';
 
       if (!empty($field['args']['class'])) {
-        $class = ' class="onix-helper-field-block" id="' . $field['id'] . '"';
+        $class = ' class="onix-helper-field-block" id="' . esc_attr($field['id']) . '"';
       }
 
-      echo "<div {$class}> ";
+      echo wp_kses_post("<div {$class}> ");
 
       if (!empty($field['args']['label_for'])) {
-        echo '<div scope="row" class="row"><label for="' . esc_attr($field['args']['label_for']) . '">' . esc_html($field['title']) . '</label>';
+        echo wp_kses_post('<div scope="row" class="row"><label for="' . esc_attr($field['args']['label_for']) . '">' . esc_html($field['title']) . '</label>');
       } else {
-        echo '<div scope="row" class="row">' . esc_html($field['title'], 'onix-helper');
+        echo wp_kses_post('<div scope="row" class="row">' . esc_html($field['title'], 'onix-helper'));
       }
 
-      echo '<div class="row-right-part">';
+      echo wp_kses_post('<div class="row-right-part">');
 
       if (isset($field['args']['has_default']) && is_callable($field['args']['has_default'])) {
         // render switcher
         call_user_func($field['args']['has_default'], $field['args']);
-        echo '</div></div><div class="oh-field-content">';
+        echo wp_kses_post('</div></div><div class="oh-field-content">');
         call_user_func($field['callback'], $field['args']);
-        echo '</div>';
+        echo wp_kses_post('</div>');
       } else {
         call_user_func($field['callback'], $field['args']);
-        echo '</div></div>';
+        echo wp_kses_post('</div></div>');
       }
 
       $description = isset($field['args']['description']) ? $field['args']['description'] : '';
-      echo '<div class="onix-helper-description"> 
+      echo wp_kses_post('<div class="onix-helper-description"> 
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0_37_3545)">
         <circle cx="9.99996" cy="5.83333" r="0.833333" fill="#D1D5DB"/>
         <path d="M9.16662 8.33333H9.99996V14.1667M18.3333 10C18.3333 14.6024 14.6023 18.3333 9.99996 18.3333C5.39759 18.3333 1.66663 14.6024 1.66663 10C1.66663 5.39762 5.39759 1.66666 9.99996 1.66666C14.6023 1.66666 18.3333 5.39762 18.3333 10Z" stroke="#D1D5DB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </g><defs><clipPath id="clip0_37_3545"> <rect width="20" height="20" fill="white"/></clipPath></defs>
-        </svg>' . esc_html($description) . '</div>';
+        </svg> <p>' . esc_html($description) . '</p></div>');
 
-      echo '</div>';
+      echo wp_kses_post('</div>');
     }
   }
 
@@ -86,7 +86,7 @@ class OhelperFunctionsOverrider
       }
 
       if ($section['title']) {
-        echo "<h2>{$section['title']}</h2>\n";
+        echo wp_kses_post("<h2>{$section['title']}</h2>\n");
       }
 
       if ($section['callback']) {
@@ -96,9 +96,9 @@ class OhelperFunctionsOverrider
       if (!isset($wp_settings_fields) || !isset($wp_settings_fields[$page]) || !isset($wp_settings_fields[$page][$section['id']])) {
         continue;
       }
-      echo '<div class="form-table onix-helper-table" role="presentation">';
+      echo wp_kses_post('<div class="form-table onix-helper-table" role="presentation">');
       self::omb_do_settings_fields($page, $section['id']);
-      echo '</div>';
+      echo wp_kses_post('</div>');
 
       if ('' !== $section['after_section']) {
         echo wp_kses_post($section['after_section']);

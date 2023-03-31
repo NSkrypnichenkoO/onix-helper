@@ -52,7 +52,7 @@ class OhelperConfigurableMetabox
 
   public function add_metabox()
   {
-    add_meta_box($this->add_metabox_args['id'], __($this->add_metabox_args['name']),
+    add_meta_box($this->add_metabox_args['id'], $this->add_metabox_args['name'],
       array($this, 'render_metabox'), $this->post_type, $this->add_metabox_args['context'], $this->add_metabox_args['priority']);
   }
 
@@ -70,7 +70,8 @@ class OhelperConfigurableMetabox
       <tr>
         <th>
           <?php echo esc_html($this->add_metabox_args['name']) ?>
-          <span class="dashicons dashicons-plus-alt add-field-block add-new-<?php echo esc_attr($this->meta_key) ?>"></span>
+          <span
+            class="dashicons dashicons-plus-alt add-field-block add-new-<?php echo esc_attr($this->meta_key) ?>"></span>
         </th>
         <td class="<?php echo esc_attr($this->meta_key) ?>-list">
           <?php
@@ -125,12 +126,11 @@ class OhelperConfigurableMetabox
       $value = empty($section_item) ? '' : $section_item[$name_of_field];
       self::show_metabox_field($name_of_field, $value, $input_label, $type);
     } ?>
-            <span class="dashicons dashicons-trash remove-fields-block remove-new-<?php echo esc_attr($this->meta_key) ?>"></span>
+            <span
+              class="dashicons dashicons-trash remove-fields-block remove-new-<?php echo esc_attr($this->meta_key) ?>"></span>
             </span>
     <?php
   }
-
-
 
 
   /**
@@ -145,32 +145,63 @@ class OhelperConfigurableMetabox
   {
 
     switch ($type_field) {
+
       case 'text':
-        echo '
-        <label for="' . esc_attr($name_of_field) . '"> ' . esc_html($input_label) . ' 
+
+        $text = '<label for="' . esc_attr($name_of_field) . '"> ' . esc_html($input_label) . ' 
 		    <p><input type="text" 
 		    name="' . esc_attr($this->meta_key) . '[' . esc_attr($name_of_field) . ']' . '[]" 
 		    value="' . esc_html($field_value) . '"></p></label>';
 
+        $tags = [
+          'p' => [],
+          'label' => [
+            'for' => [],
+          ],
+          'input' => [
+            'type' => [],
+            'name' => [],
+            'value' => [],
+          ],
+        ];
+        echo wp_kses($text, $tags);
         break;
+
       case 'image':
+
         $default = get_stylesheet_directory_uri() . '/images/no-image.jpg';
-        echo 'image';
+        esc_html_e('image', 'onix-helper');
         if ($field_value) {
           $image_attributes = wp_get_attachment_image_src($field_value, array(100, 100));
           $src = $image_attributes[0];
         } else {
           $src = $default;
         }
-        echo '
-				<div>
-				<img data-src="' . $default . '" src="' . esc_url($src) . '" width="' . 90 . 'px" height="' . 90 . 'px" />
+        $img = '<div><img data-src="' . esc_attr($default) . '" src="' . esc_url($src) . '" width="' . 90 . 'px" height="' . 90 . 'px" />
 					<div>
 						<input type="hidden" name="' . esc_attr($this->meta_key) . '[' . esc_attr($name_of_field) . ']' . '[]" id="' . esc_attr($name_of_field) . '[]" value="' . esc_html($field_value) . '" />
-						<button type="submit" class="upload_image_button button">Upload</button>
-					</div>
-				</div>
-				';
+						<button type="submit" class="upload_image_button button">' . __('Upload', 'onix-helper') . '</button>
+					</div></div>';
+        $tags = [
+          'div' => [],
+          'img' => [
+            'data-src' => [],
+            'src' => [],
+            'width' => [],
+            'height' => [],
+          ],
+          'input' => [
+            'type' => [],
+            'name' => [],
+            'id' => [],
+            'value' => [],
+          ],
+          'button' => [
+            'type' => [],
+            'class' => [],
+          ],
+        ];
+        echo wp_kses($img, $tags);
         break;
     }
   }
@@ -187,7 +218,6 @@ class OhelperConfigurableMetabox
     }
 
     $list_of_fields_name = self::create_array_from_fields_name();
-
 
     $result_array = [];
 

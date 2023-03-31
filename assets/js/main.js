@@ -35,7 +35,6 @@ window.addEventListener("load", (event) => {
 });
 
 function omb_change_setting_status() {
-  // alert('dfjdhbhbfhdfdfh');
 }
 
 function omb_switch_tab(e) {
@@ -44,7 +43,6 @@ function omb_switch_tab(e) {
   let currentTab = e.currentTarget;
   let link = e.target;
   let activePainId = link.getAttribute('href');
-  console.log(document.querySelector(activePainId));
 
   //remove previous active tab before makes active the new one
   document.querySelector('ul.nav-tabs > li.active').classList.remove('active');

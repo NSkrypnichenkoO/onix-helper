@@ -75,7 +75,7 @@ class OhelperAdminCallbacks extends OhelperBaseController
 
   public function admin_pages_settings_section_manager()
   {
-    echo '';
+//    echo '';
   }
 
   /**
@@ -90,7 +90,7 @@ class OhelperAdminCallbacks extends OhelperBaseController
 
     if (!$name) {
       error_log('field in Admin.php set_fields() was create with error in code, please check it ', );
-      echo '';
+//      echo '';
     }
 
     $option_name = $args['option_name'];

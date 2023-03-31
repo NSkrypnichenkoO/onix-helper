@@ -78,6 +78,8 @@ a:focus, a:focus .media-icon img, a:focus .plugin-icon, .wp-person a:focus .grav
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 40px;
     grid-row-gap: 40px;
+    padding-left: 15px;
+    width: auto;
 
     .onix-helper-field-block {
       position: relative;
@@ -87,6 +89,8 @@ a:focus, a:focus .media-icon img, a:focus .plugin-icon, .wp-person a:focus .grav
         justify-content: space-between;
         align-items: center;
         padding-bottom: 14px;
+        line-height: 40px;
+        z-index: 1;
 
         input {
           max-width: 320px;
@@ -141,6 +145,36 @@ a:focus, a:focus .media-icon img, a:focus .plugin-icon, .wp-person a:focus .grav
           margin-right: 10px;
           //height: 20px;
 
+        }
+        p{
+          margin: 0;
+        }
+
+        &.hide-description{
+          position: absolute;
+          width: 20px;
+          z-index: 0;
+          top: 6px;
+          height: 20px;
+          overflow: hidden;
+          left: -27px;
+          padding: 5px;
+          background: transparent;
+          cursor: help;
+
+          &:hover{
+            overflow: initial;
+            width: auto;
+            height: auto;
+
+            p{
+              background: #4A4F58;
+              margin-top: -30px;
+              color: white;
+              height: fit-content;
+              padding: 5px;
+            }
+          }
         }
       }
     }
