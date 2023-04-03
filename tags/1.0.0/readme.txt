@@ -51,8 +51,8 @@ Activate plugin, open settings page, choose checkbox to activate necessary funct
 
 
 ==Screenshots==
-1. plugin admin panel
-2. Page for new CPT
+1. logo
+2. banner
 
 ==Changelog==
 Version 1.0.0

@@ -1,0 +1,24 @@
+.first-screen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $white;
+  padding:0 20px;
+  margin-bottom: 20px;
+
+  h1 {
+    &::first-letter {
+      //onix blue
+      color: $onix-blue;
+      font-size: 30px;
+    }
+  }
+
+  .header-image {
+    img {
+      max-height: 200px;
+      width: auto;
+      max-width: none;
+    }
+  }
+}
