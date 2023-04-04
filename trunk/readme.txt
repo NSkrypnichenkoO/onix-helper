@@ -3,7 +3,7 @@ Contributors: wponixdev
 Donate link: https://example.com/
 Tags: CPT, custom post type, taxonomy
 Requires at least: 6.0
-Tested up to: 6.1
+Tested up to: 6.2
 Stable tag: 1.0.0
 Requires PHP: 8.0
 License: GPL v2 or later
@@ -14,7 +14,7 @@ License URL: https://www.gnu.org/licenses/gpl-2.0.html
 Onix Helper is intended to create Custom Post Types and Custom Taxonomies in a way convenient to you. This plugin suits developers, agencies and private users. It just works!
 
 
-=Features=
+==Features==
 
 1. Optional integration with WordPress API
 2. Custom Post Types and Сustom Taxonomies creation without code writing
@@ -28,7 +28,7 @@ Onix Helper is intended to create Custom Post Types and Custom Taxonomies in a w
 10. Registered custom post types can be exported/imported using default WordPress functionality.
 11. Plugin contains restricted Fields Manager functions: it is possible to add meta boxes to the post types. These metaboxes can be of repeater type, but the fields themselves allow only combination of text and picture.
 
-=Bundled translations=
+==Bundled translations==
 
 English
 
@@ -51,8 +51,8 @@ Activate plugin, open settings page, choose checkbox to activate necessary funct
 
 
 ==Screenshots==
-1. plugin admin panel
-2. Page for new CPT
+1. logo
+2. banner
 
 ==Changelog==
 Version 1.0.0
