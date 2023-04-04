@@ -145,10 +145,9 @@ class OhelperConfigurableMetabox
   {
 
     switch ($type_field) {
-
       case 'text':
-
-        $text = '<label for="' . esc_attr($name_of_field) . '"> ' . esc_html($input_label) . ' 
+        $text = '
+        <label for="' . esc_attr($name_of_field) . '"> ' . esc_html($input_label) . ' 
 		    <p><input type="text" 
 		    name="' . esc_attr($this->meta_key) . '[' . esc_attr($name_of_field) . ']' . '[]" 
 		    value="' . esc_html($field_value) . '"></p></label>';
@@ -166,9 +165,7 @@ class OhelperConfigurableMetabox
         ];
         echo wp_kses($text, $tags);
         break;
-
       case 'image':
-
         $default = get_stylesheet_directory_uri() . '/images/no-image.jpg';
         esc_html_e('image', 'onix-helper');
         if ($field_value) {
@@ -177,11 +174,15 @@ class OhelperConfigurableMetabox
         } else {
           $src = $default;
         }
-        $img = '<div><img data-src="' . esc_attr($default) . '" src="' . esc_url($src) . '" width="' . 90 . 'px" height="' . 90 . 'px" />
+        $img = '
+				<div>
+				<img data-src="' . esc_attr($default) . '" src="' . esc_url($src) . '" width="' . 90 . 'px" height="' . 90 . 'px" />
 					<div>
 						<input type="hidden" name="' . esc_attr($this->meta_key) . '[' . esc_attr($name_of_field) . ']' . '[]" id="' . esc_attr($name_of_field) . '[]" value="' . esc_html($field_value) . '" />
 						<button type="submit" class="upload_image_button button">' . __('Upload', 'onix-helper') . '</button>
-					</div></div>';
+					</div>
+				</div>
+				';
         $tags = [
           'div' => [],
           'img' => [
@@ -218,6 +219,7 @@ class OhelperConfigurableMetabox
     }
 
     $list_of_fields_name = self::create_array_from_fields_name();
+
 
     $result_array = [];
 

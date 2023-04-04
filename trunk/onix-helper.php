@@ -34,14 +34,14 @@ defined('ABSPATH') or die('Hey, what are you doing here? You silly human!');
 
 //require composer
 if (file_exists(plugin_dir_path(__FILE__) . 'vendor/autoload.php')) {
-    require_once(plugin_dir_path(__FILE__) . 'vendor/autoload.php');
+  require_once(plugin_dir_path(__FILE__) . 'vendor/autoload.php');
 }
 
 function ohelper_activate()
 {
-    if (class_exists('Onixhelper\System\OhelperActivate')) {
-        Onixhelper\System\OhelperActivate::activate();
-    }
+  if (class_exists('Onixhelper\System\OhelperActivate')) {
+    Onixhelper\System\OhelperActivate::activate();
+  }
 
 }
 
@@ -49,7 +49,7 @@ register_activation_hook(__FILE__, 'ohelper_activate');
 
 function ohelper_deactivate()
 {
-    Onixhelper\System\OhelperDeactivate::deactivate();
+  Onixhelper\System\OhelperDeactivate::deactivate();
 }
 
 register_deactivation_hook(__FILE__, 'ohelper_deactivate');
@@ -58,8 +58,8 @@ register_deactivation_hook(__FILE__, 'ohelper_deactivate');
  * register all classes, that we use
  */
 if (class_exists('Onixhelper\\OhelperInit')) {
-    Onixhelper\OhelperInit::register_services();
+  Onixhelper\OhelperInit::register_services();
 } else {
-    die('cant find Onixhelper\\OhelperInit');
+  die('cant find Onixhelper\\OhelperInit');
 }
 

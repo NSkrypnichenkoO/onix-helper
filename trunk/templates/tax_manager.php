@@ -11,10 +11,10 @@ $edit_one = isset($_POST['edit_tax'])
 ?>
 
 <ul class="nav nav-tabs">
-  <li class="<?php echo esc_attr($edit_one) ? esc_attr('') : esc_attr('active') ?>">
+  <li class="<?php echo esc_attr($edit_one) ? '' : esc_attr('active') ?>">
     <a href="#tab-1"> <?php esc_html_e('Created Taxonomy', 'onix-helper') ?></a>
   </li>
-  <li class="<?php echo $edit_one ? esc_attr('active', ) : esc_attr('') ?>">
+  <li class="<?php echo $edit_one ? esc_attr('active', ) : '' ?>">
     <a
       href="#tab-2"> <?php echo $edit_one ? esc_html(__('Edit ', 'onix-helper')) . esc_html(sanitize_title($_POST['edit_tax'])) : esc_html(__('Add new Taxonomy', 'onix-helper')) ?></a>
   </li>
@@ -24,7 +24,7 @@ $edit_one = isset($_POST['edit_tax'])
 </ul>
 
 <div class="tab-content">
-  <div id="tab-1" class="tab-pane <?php echo $edit_one ? esc_attr('') : esc_attr('active') ?>">
+  <div id="tab-1" class="tab-pane <?php echo $edit_one ? '' : esc_attr('active') ?>">
     <h3> <?php esc_html_e('Created Taxonomies', 'onix-helper') ?> </h3>
 
     <table class="wp-list-table widefat fixed striped table-view-list">
@@ -42,6 +42,7 @@ $edit_one = isset($_POST['edit_tax'])
 
       if ($tax_list) {
       ?>
+
       <tbody>
         <?php
         foreach ($tax_list as $tax) {
@@ -50,7 +51,7 @@ $edit_one = isset($_POST['edit_tax'])
           <tr>
             <td><?php esc_html_e($taxonomy, 'onix-helper') ?></td>
             <td><?php esc_html_e($tax['singular_name']) ?></td>
-            <td><?php echo isset($tax["description"]) ? esc_html($tax["description"]) : esc_html('') ?></td>
+            <td><?php echo isset($tax["description"]) ? esc_html($tax["description"]) : '' ?></td>
             <td class="button-wrapper">
               <form method="post" action="">
                 <input type="hidden" name="edit_tax" value="<?php echo esc_html($taxonomy) ?>">
@@ -75,7 +76,7 @@ $edit_one = isset($_POST['edit_tax'])
     </table>
   </div>
 
-  <div id="tab-2" class="tab-pane <?php echo $edit_one ? esc_attr('active') : esc_attr('') ?>">
+  <div id="tab-2" class="tab-pane <?php echo $edit_one ? esc_attr('active') : '' ?>">
     <form method="post" action="options.php">
       <?php
       settings_fields('omb_tax_settings');

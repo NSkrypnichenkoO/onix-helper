@@ -18,6 +18,7 @@ function ready() {
           button.classList.add('hide-description')
         });
       }
+
     });
   }
 }

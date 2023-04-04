@@ -7,17 +7,17 @@ $base_controller = new OhelperBaseController();
 
 require_once $base_controller->omb_path . 'templates/template-parts/sections/header.php';
 
-$edit_one = isset($_POST['edit_cpt'])
+$edit_one = isset($_POST['edit_cpt']);
 ?>
 
 
 <ul class="nav nav-tabs">
-  <li class="<?php echo $edit_one ? esc_attr('') : esc_attr('active') ?>">
+  <li class="<?php echo $edit_one ? '' : esc_html(__('active', 'onix-helper')) ?>">
     <a href="#tab-1"><?php esc_html_e('Created Custom Post Types', 'onix-helper') ?></a>
   </li>
   <li class="<?php echo $edit_one ? esc_attr('active') : '' ?>">
     <a
-      href="#tab-2"> <?php echo $edit_one ? sprintf(__('Edit %s', 'onix-helper'), esc_html(sanitize_title($_POST['edit_cpt']))) : esc_html__('Add new Custom Post Type', 'onix-helper') ?></a>
+      href="#tab-2"> <?php echo $edit_one ? sprintf(__('Edit %s', 'onix-helper'), esc_html(sanitize_title($_POST['edit_cpt']))) : esc_html(__('Add new Custom Post Type', 'onix-helper')) ?></a>
   </li>
   <!--  <li>-->
   <!--    <a href="#tab-3"> <?php // echo esc_html_e('Export'. 'onix-helper') ?></a>-->
@@ -26,7 +26,7 @@ $edit_one = isset($_POST['edit_cpt'])
 
 
 <div class="tab-content">
-  <div id="tab-1" class="tab-pane <?php echo $edit_one ? esc_attr('') : esc_attr('active') ?>">
+  <div id="tab-1" class="tab-pane <?php echo $edit_one ? '' : esc_attr('active') ?>">
     <h3><?php esc_html_e('Created Custom Post Types', 'onix-helper') ?></h3>
 
     <table class="wp-list-table widefat fixed striped table-view-list">
@@ -86,7 +86,7 @@ $edit_one = isset($_POST['edit_cpt'])
     </table>
   </div>
 
-  <div id="tab-2" class="tab-pane <?php echo $edit_one ? esc_attr('active') : esc_attr('') ?>">
+  <div id="tab-2" class="tab-pane <?php echo $edit_one ? esc_html('active') : '' ?>">
     <form method="post" action="options.php">
       <?php
       settings_fields('omb_cpt_settings');
@@ -97,6 +97,8 @@ $edit_one = isset($_POST['edit_cpt'])
     </form>
   </div>
   <div id="tab-3" class="tab-pane"><h3> <?php esc_html_e('Export', 'onix-helper') ?></h3></div>
+
+
 </div>
 
 
