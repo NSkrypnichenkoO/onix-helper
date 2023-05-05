@@ -4,7 +4,7 @@
  *
  * Plugin URI:        https://onix-systems-onix-helper.staging.onix.ua/
  * Description:       Onix Helper is intended to create Custom Post Types and Custom Taxonomies in a way convenient to you. This plugin suits for developers, agencies and private users. It just works!
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.1
  * Requires PHP:      8.0
  * Author:            Onix
