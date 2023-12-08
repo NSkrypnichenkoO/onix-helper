@@ -1,0 +1,64 @@
+.omb-section-fields {
+  .oh-field-item {
+    display: grid;
+    grid-template-columns: 1fr 40px;
+    grid-row-gap: 10px;
+
+    .oh-fields-block {
+      padding: 10px;
+      border-right: 1px solid $onix-blue;
+      box-shadow: $box-shadow;
+
+      &:not(last-child) {
+        margin-bottom: 20px;
+      }
+
+      .oh-image-block{
+        max-width: 300px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+    }
+
+    .oh-actions-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      @include transition(0.5s);
+
+    }
+
+    &:hover {
+      .oh-actions-container {
+        opacity: 1;
+      }
+    }
+  }
+
+  .oh-bottom-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+
+    .add-field-block {
+      display: block;
+      padding: 10px;
+      color: $white;
+      background: $onix-blue;
+      border-radius: 6px;
+      @include transition(0.5s);
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+
+  input, textarea {
+    width: 100%;
+    border-radius: 6px;
+  }
+}

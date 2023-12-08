@@ -6,7 +6,7 @@
  * Description:       Onix Helper is intended to create Custom Post Types and Custom Taxonomies in a way convenient to you. This plugin suits for developers, agencies and private users. It just works!
  * Version:           1.0.2
  * Requires at least: 6.1
- * Requires PHP:      8.0.0
+ * Requires PHP:      7.4.0
  * Author:            Onix
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html

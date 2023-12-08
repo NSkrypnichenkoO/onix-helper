@@ -1,0 +1,34 @@
+@mixin onix-input {
+  max-width: 320px;
+  padding: 12px 16px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.5px;
+  @include input-button-border;
+
+  &::placeholder {
+    color: $light-gray;
+  }
+}
+
+@mixin oh-action-button {
+  background: $select-blue;
+  padding: 12px 16px;
+  cursor: pointer;
+  @include input-button-border;
+}
+
+
+
+@mixin input-button-border() {
+  border: 1px solid $light-gray;
+  border-radius: 6px;
+}
+
+//   transition
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  transition: $transition;
+}

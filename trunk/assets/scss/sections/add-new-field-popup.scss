@@ -1,0 +1,99 @@
+.onix-beautiful-popup {
+  position: fixed;
+  width: calc(100vw - 224px);
+  margin-left: -33px;
+  top: 0;
+  height: 100vh;
+  background: $select-blue03;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .popup-content {
+    position: relative;
+    padding: 30px;
+    background: $select-blue;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+    .close-modal-button {
+      position: absolute;
+      right: -20px;
+      top: -20px;
+      z-index: 10;
+      background-color: #fff;
+      border-radius: 4em;
+      height: 20px;
+      width: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+      &:before {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        font-family: fontAwesome;
+        content: "\f00d";
+        color: $black;
+        font-size: 15px;
+        transform: translate(-50%, -50%);
+      }
+
+      &:hover:before {
+        color: red;
+        -webkit-transition: background 350ms cubic-bezier(0.42, 0, 0.58, 1) 10ms, all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+        -moz-transition: background 350ms cubic-bezier(0.42, 0, 0.58, 1) 10ms, all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+        -o-transition: background 350ms cubic-bezier(0.42, 0, 0.58, 1) 10ms, all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+        transition: background 350ms cubic-bezier(0.42, 0, 0.58, 1) 10ms, all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+        -webkit-transform: translate(-55%, -48%) rotate(-0.25turn);
+        transform: translate(-55%, -48%) rotate(-0.25turn); /*Had to bump it b/c the dimensions are not square*/
+      }
+    }
+
+    .oh-single-field-params {
+      .oh-single-field-param {
+        position: relative;
+        display: grid;
+        grid-template-columns: calc(20% - 10px) 80%;
+        grid-column-gap: 10px;
+
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
+        &:not(:first-child) {
+          padding-bottom: 23px;
+        }
+        .oh-error-message{
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          text-align: right;
+        }
+
+        input {
+          @include onix-input;
+        }
+
+        &.oh-find-error{
+          input {
+            border: 1px solid red;
+          }
+        }
+      }
+    }
+
+    #submit-onix-helper-add-field-form {
+      margin-top: 30px;
+      display: block;
+      background: $onix-blue;
+      color: $white;
+      width: fit-content;
+      width: -moz-fit-content;
+      padding: 5px 10px;
+      border-radius: 6px;
+    }
+
+  }
+
+}
